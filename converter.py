@@ -7,6 +7,13 @@ romans = {'I':	1,
           'M':	1000}
 
 
+def is_roman(roman):
+    for r in roman:
+        if r not in romans:
+            return False
+    return True
+
+
 def roman_to_arabic(roman):
     result = 0
 
