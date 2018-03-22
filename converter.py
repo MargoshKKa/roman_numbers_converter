@@ -1,3 +1,6 @@
+import re
+
+
 romans = {'I':	1,
           'V':	5,
           'X':	10,
@@ -14,6 +17,11 @@ def is_roman(roman):
     return True
 
 
+def is_roman_correct(roman):
+    result = re.search(roman,'M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})')
+    return result is not None
+
+
 def roman_to_arabic(roman):
     result = 0
 
@@ -28,4 +36,5 @@ def roman_to_arabic(roman):
             result += romans[roman[i]]
 
     return result
+
 

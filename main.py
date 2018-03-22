@@ -23,14 +23,15 @@ a - convert arabic to roman
 
 def roman_case():
     roman = input("Enter roman number: ")
-    if not converter.is_roman(roman):
 
+    if not converter.is_roman_correct(roman):
         print('''
              Invalid input!
 
              Please, use this characters for roman number:
              I V X L C D M 
              ''')
+        return
 
     transformed_number = converter.roman_to_arabic(roman)
     print(f'Arabic value: {transformed_number}')
