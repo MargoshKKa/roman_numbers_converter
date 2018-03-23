@@ -19,8 +19,7 @@ def arabic_to_roman(number):
     result = is_correct_arabic_number(number)
     if not result[0]: raise ValueError(result[1])
 
-    # reverse string to get result
-    roman = process(number)[::-1]
+    roman = process(number)
     return roman
 
 
@@ -33,7 +32,7 @@ def process(number):
     # and add it to result string
     for digit in number[::-1]:
         if digit != '0':
-            result += romans.get(int(digit) * rank)
+            result = romans.get(int(digit) * rank) + result
         # change rank of the digit
         rank *= 10
     return result
