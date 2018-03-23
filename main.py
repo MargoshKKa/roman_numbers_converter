@@ -1,4 +1,5 @@
-import converter
+from converters.to_roman_converter import arabic_to_roman
+from converters.to_arabic_converter import roman_to_arabic
 
 
 def menu():
@@ -11,39 +12,35 @@ e - exit the program
 r - convert roman to arabic
 a - convert arabic to roman
     ''')
-        if value == 'r':
-            roman_case()
-        elif value == 'a':
-            arabic_case()
-        elif value == 'e':
-            break
-        else:
-            continue
+        try:
+            if value == 'r':
+                roman_case()
+            elif value == 'a':
+                arabic_case()
+            elif value == 'e':
+                break
+            else:
+                continue
+        except ValueError as err:
+            print(f'''
+        Invalid input!
+        {err.args[0]}''')
 
 
 def roman_case():
     roman = input("Enter roman number: ")
-
-    if not converter.is_roman_correct(roman):
-        print('''
-             Invalid input!
-
-             Please, use this characters for roman number:
-             I V X L C D M 
-             ''')
-        return
-
-    transformed_number = converter.roman_to_arabic(roman)
+    transformed_number = roman_to_arabic(roman)
     print(f'Arabic value: {transformed_number}')
 
 
 def arabic_case():
-    pass
+    number = input("Enter arabic number: ")
+    transformed_number = arabic_to_roman(int(number))
+    print(f'Roman value: {transformed_number}')
 
 
 def main():
     menu()
-
 
 
 if __name__ == '__main__':
