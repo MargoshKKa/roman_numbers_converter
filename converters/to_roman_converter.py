@@ -16,6 +16,7 @@ def is_correct_arabic_number(number):
 
 
 def arabic_to_roman(number):
+    # check if processed number can be converted
     result = is_correct_arabic_number(number)
     if not result[0]: raise ValueError(result[1])
 
