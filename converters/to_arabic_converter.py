@@ -29,7 +29,7 @@ def roman_to_arabic(roman):
             result += romans[roman[i]]
             break
 
-        # check if next symbol value less than current - then substract it from result
+        # check if current symbol value less than next - then substract it from result
         if romans[roman[i]] < romans[roman[i+1]]:
             result -= romans[roman[i]]
         else:
